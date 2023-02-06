@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-from bsevents import BsEventUtils as bs
+from utils import BsEventUtils as bs
 from datetime import datetime as dt
 
 # todo график организация/статус события

@@ -1,8 +1,20 @@
 import pandas as pd
 from datetime import datetime as dt
 from datetime import date
-from typing import List
+from typing import List, Union
 
+
+JSON_DATASET_PATH = 'datasets/bregis.bsevents.json'
+
+_dataframe: Union[pd.DataFrame, None] = None
+def get_dataframe(cached: bool = True):
+    global _dataframe
+    if _dataframe is None or not cached:
+        print('reading dataframe')
+        _dataframe = pd.read_json(JSON_DATASET_PATH)
+    else:
+        print('giving cached dataframe')
+    return _dataframe.copy()
 
 def noramlize(df: pd.DataFrame) -> pd.DataFrame:
     # this removes unnecessary columns

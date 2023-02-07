@@ -6,10 +6,12 @@ from datetime import datetime as dt
 # todo график организация/статус события
 # дизайн графиков
 
-JSON_DATASET_PATH = 'datasets/bregis.bsevents.json'
-DATAFRAME_DISPLAY_MAX_SIZE = 5000
-
-df = bs.noramlize(pd.read_json(JSON_DATASET_PATH))
+DATAFRAME_DISPLAY_MAX_SIZE = 200
+if st.session_state.get('input_update_btn', False):
+    df = bs.get_dataframe(cached=False)
+else:
+    df = bs.get_dataframe()
+df = bs.noramlize(df)
 initial_df_count = len(df)
 
 ########################### USER INPUT ###########################
@@ -55,6 +57,8 @@ df = bs.filter_by_events(df,
 
 st.title('BsEvents stat')
 st.header('Датасет')
+st.button('Обновить данные', key='input_update_btn')
+st.empty()
 st.dataframe(df.head(DATAFRAME_DISPLAY_MAX_SIZE).style.applymap(color_type, subset=['event']))
 if len(df) > DATAFRAME_DISPLAY_MAX_SIZE:
     dataframe_caption = (f'Отображено записей {DATAFRAME_DISPLAY_MAX_SIZE} из {len(df)}')

@@ -2,11 +2,12 @@ import pandas as pd
 import streamlit as st
 from utils import BsEventUtils as bs
 from datetime import datetime as dt
+from config.conf import bsevents
 
 # todo график организация/статус события
 # дизайн графиков
 
-DATAFRAME_DISPLAY_MAX_SIZE = 200
+DATAFRAME_DISPLAY_MAX_SIZE = bsevents.get('DATAFRAME_DISPLAY_MAX_SIZE', 200)
 if st.session_state.get('input_update_btn', False):
     df = bs.get_dataframe(cached=False)
 else:

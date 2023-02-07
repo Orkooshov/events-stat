@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-from utils import BsEventUtils as bs
+from utils import bsevents as bs
 from datetime import datetime as dt
 from config.conf import bsevents
 

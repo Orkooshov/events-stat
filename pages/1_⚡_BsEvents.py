@@ -4,7 +4,6 @@ from utils import bsevents as bs
 from datetime import datetime as dt
 from config.conf import bsevents
 
-# todo график организация/статус события
 # дизайн графиков
 
 DATAFRAME_DISPLAY_MAX_SIZE = bsevents.get('DATAFRAME_DISPLAY_MAX_SIZE', 200)

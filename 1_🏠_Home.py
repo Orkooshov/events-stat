@@ -8,4 +8,4 @@ st.markdown('Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio aliq
 
 author, data = st.columns(2)
 author.info('Кто придумал: Мухаааааа', icon='💡')
-data.info('Данные берутся из json', icon='🧠')
+data.info('Данные берутся из бд', icon='🧠')

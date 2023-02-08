@@ -57,14 +57,14 @@ df = bs.filter_by_events(df,
 
 st.title('BsEvents stat')
 st.header('Датасет')
-st.button('Обновить данные', key='input_update_btn')
+st.button('🔃 Обновить данные', key='input_update_btn')
 st.empty()
 st.dataframe(df.head(DATAFRAME_DISPLAY_MAX_SIZE).style.applymap(color_type, subset=['event']))
 if len(df) > DATAFRAME_DISPLAY_MAX_SIZE:
     dataframe_caption = (f'Отображено записей {DATAFRAME_DISPLAY_MAX_SIZE} из {len(df)}')
 else:
     dataframe_caption = (f'Отображено {len(df)} записей')
-st.caption(f'{dataframe_caption}. Всего в датасете {initial_df_count}.')
+st.caption(f'{dataframe_caption}. Всего в базе данных {initial_df_count}.')
 st.download_button('⬇️ Скачать таблицу ⬇️', df.to_csv(), 'bsevents.csv')
 
 st.header('Кто сколько пульнул событий')

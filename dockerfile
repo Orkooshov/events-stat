@@ -1,13 +1,14 @@
 # syntax=docker/dockerfile:1
 
+# Setup
 FROM        python:3.10
-ENV VIRTUAL_ENV=/opt/venv
-RUN python3 -m venv $VIRTUAL_ENV
-ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+ENV         VIRTUAL_ENV=/opt/venv
+RUN         python3 -m venv $VIRTUAL_ENV
+ENV         PATH="$VIRTUAL_ENV/bin:$PATH"
 
 # Install dependencies:
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+COPY        requirements.txt .
+RUN         pip install -r requirements.txt
 
 WORKDIR     /lcn-stat-3.0
 COPY        . .

@@ -3,6 +3,7 @@
 FROM        python:3.12.0a5
 WORKDIR     /lcn-stat-3.0
 COPY        . .
-RUN         python -m pip install -r requirements.txt
-CMD         ["python", "-m", "-streamlit", "run", "1_🏠_Home.py"]
+RUN         python3 -m pip install pip --upgrade
+RUN         python3 -m pip install -r requirements.txt
+CMD         ["python3", "-m", "-streamlit", "run", "1_🏠_Home.py"]
 EXPOSE      8501

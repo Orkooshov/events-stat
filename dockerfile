@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM        python:3.12.0a5
+FROM        python:3.10
 WORKDIR     /lcn-stat-3.0
 COPY        . .
 RUN         python3 -m pip install pip --upgrade
